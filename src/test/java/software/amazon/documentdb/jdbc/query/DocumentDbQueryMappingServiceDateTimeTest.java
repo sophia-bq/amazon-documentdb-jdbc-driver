@@ -856,10 +856,10 @@ public class DocumentDbQueryMappingServiceDateTimeTest extends DocumentDbQueryMa
         final BsonDocument matchDoc3 = rootDoc3.getDocument("$match");
         final BsonDateTime currDate3 = matchDoc3
                 .getDocument("field")
-                .getDateTime("$lt");
+                .getDateTime("$lte");
         Assertions.assertNotNull(currDate3);
         Assertions.assertEquals(
-                BsonDocument.parse("{\"$match\": {\"field\": {\"$lt\": {\"$date\": {\"$numberLong\": \"" + currDate3.getValue() + "\"}}}}}").toJson(),
+                BsonDocument.parse("{\"$match\": {\"field\": {\"$lte\": {\"$date\": {\"$numberLong\": \"" + currDate3.getValue() + "\"}}}}}").toJson(),
                 operations3.get(0).toBsonDocument().toJson());
         Assertions.assertEquals(BsonDocument.parse(
                 "{\"$project\": {\"dateTestCollection__id\": \"$_id\", \"field\": \"$field\", \"_id\": 0}}"), operations3.get(1));
@@ -877,10 +877,10 @@ public class DocumentDbQueryMappingServiceDateTimeTest extends DocumentDbQueryMa
         final BsonDocument matchDoc4 = rootDoc4.getDocument("$match");
         final BsonDateTime currDate4 = matchDoc4
                 .getDocument("field")
-                .getDateTime("$lt");
+                .getDateTime("$lte");
         Assertions.assertNotNull(currDate4);
         Assertions.assertEquals(
-                BsonDocument.parse("{\"$match\": {\"field\": {\"$lt\": {\"$date\": {\"$numberLong\": \"" + currDate4.getValue() + "\"}}}}}").toJson(),
+                BsonDocument.parse("{\"$match\": {\"field\": {\"$lte\": {\"$date\": {\"$numberLong\": \"" + currDate4.getValue() + "\"}}}}}").toJson(),
                 operations4.get(0).toBsonDocument().toJson());
         Assertions.assertEquals(BsonDocument.parse(
                 "{\"$project\": {\"dateTestCollection__id\": \"$_id\", \"field\": \"$field\", \"_id\": 0}}"), operations4.get(1));
@@ -910,7 +910,7 @@ public class DocumentDbQueryMappingServiceDateTimeTest extends DocumentDbQueryMa
         final List<Bson> operations6 = context6.getAggregateOperations();
         Assertions.assertEquals(2, operations6.size());
         Assertions.assertEquals(
-                BsonDocument.parse("{\"$match\": {\"field\": {\"$lt\": {\"$date\": \"2020-01-01T00:00:00Z\"}}}}}").toJson(),
+                BsonDocument.parse("{\"$match\": {\"field\": {\"$lte\": {\"$date\": \"2020-01-01T00:00:00Z\"}}}}}").toJson(),
                 operations6.get(0).toBsonDocument().toJson());
         Assertions.assertEquals(BsonDocument.parse(
                 "{\"$project\": {\"dateTestCollection__id\": \"$_id\", \"field\": \"$field\", \"_id\": 0}}"), operations6.get(1));
