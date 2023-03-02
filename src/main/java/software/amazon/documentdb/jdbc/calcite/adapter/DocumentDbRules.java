@@ -1142,10 +1142,10 @@ public final class DocumentDbRules {
         static {
             REVERSE_OPERATORS.put(SqlStdOperatorTable.EQUALS, "$eq");
             REVERSE_OPERATORS.put(SqlStdOperatorTable.NOT_EQUALS, "$ne");
-            REVERSE_OPERATORS.put(SqlStdOperatorTable.GREATER_THAN, "$lte");
-            REVERSE_OPERATORS.put(SqlStdOperatorTable.GREATER_THAN_OR_EQUAL, "$lt");
-            REVERSE_OPERATORS.put(SqlStdOperatorTable.LESS_THAN, "$gte");
-            REVERSE_OPERATORS.put(SqlStdOperatorTable.LESS_THAN_OR_EQUAL, "$gt");
+            REVERSE_OPERATORS.put(SqlStdOperatorTable.GREATER_THAN, "$lt");
+            REVERSE_OPERATORS.put(SqlStdOperatorTable.GREATER_THAN_OR_EQUAL, "$lte");
+            REVERSE_OPERATORS.put(SqlStdOperatorTable.LESS_THAN, "$gt");
+            REVERSE_OPERATORS.put(SqlStdOperatorTable.LESS_THAN_OR_EQUAL, "$gte");
         }
 
         private static String getObjectIdComparisonOperator(
